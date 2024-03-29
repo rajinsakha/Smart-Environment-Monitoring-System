@@ -9,5 +9,10 @@
 
 .card-background{
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.15) 100%);
+}
 
+@layer utilities{
+    .padding{
+        @apply px-8 py-8 sm:px-16 sm:py-16 lg:px-24
+    }
 }
