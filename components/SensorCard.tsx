@@ -17,11 +17,11 @@ interface ICard{
 
 const SensorCard = ({title, Icon, value}:ICard) => {
   return (
-<Card className='w-64 card-background border-none flex flex-col items-center text-white rounded-3xl' >
+<Card className='w-64 card-background border-none flex flex-col space-y-2 items-center text-white rounded-3xl' >
   <CardHeader>
-    <CardTitle>{title} Sensor</CardTitle>
+    <CardTitle className='text-center'>{title} Sensor</CardTitle>
   </CardHeader>
-  <CardContent>
+  <CardContent className='flex-1'>
     <Icon fontSize={120} />
   </CardContent>
   <CardFooter>
