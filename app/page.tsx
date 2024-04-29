@@ -5,13 +5,12 @@ import { get, ref } from "firebase/database";
 import { database } from "./firebaseConfig";
 import { FaFireFlameCurved, FaTemperatureFull, FaWater } from "react-icons/fa6";
 import { MdOutlineTouchApp, MdCo2 } from "react-icons/md";
-import { GiPathDistance, GiPoisonGas, GiSmokeBomb  } from "react-icons/gi";
+import { GiPathDistance, GiPoisonGas, GiSmokeBomb } from "react-icons/gi";
 import { WiHumidity } from "react-icons/wi";
 import { IoRainySharp } from "react-icons/io5";
 import { BsMoisture, BsSoundwave } from "react-icons/bs";
 import { LuGaugeCircle } from "react-icons/lu";
 import { useEffect, useState } from "react";
-
 
 export default function Home() {
   const [sensorsData, setSensorsData] = useState<any>({});
@@ -23,12 +22,12 @@ export default function Home() {
         setSensorsData(snapshot.val());
       }
     });
-  },[]);
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col justify-between bg-[#00255B]">
       <Header />
-      <section className="padding grid lg:grid-cols-4 md:grid-cols-3 min-[500px]:grid-cols-2 grid-cols-1 gap-12">
+      <section className="padding grid lg:grid-cols-4 md:grid-cols-3 min-[500px]:grid-cols-2 grid-cols-1 gap-12 items-center justify-center">
         <SensorCard
           title="Flame Sensor"
           Icon={FaFireFlameCurved}
@@ -59,22 +58,22 @@ export default function Home() {
           Icon={GiPathDistance}
           value={sensorsData.distance}
         />
-           <SensorCard
+        <SensorCard
           title="Carbon Dioxide"
           Icon={MdCo2}
           value={sensorsData.CO2}
         />
-         <SensorCard
+        <SensorCard
           title="Carbon Monoxide"
           Icon={GiPoisonGas}
           value={sensorsData.CO}
         />
-          <SensorCard
+        <SensorCard
           title="Soil Moisture Sensor"
           Icon={BsMoisture}
           value={sensorsData.CO}
         />
-         <SensorCard
+        <SensorCard
           title="Water Level Sensor"
           Icon={FaWater}
           value={sensorsData.CO}
@@ -84,7 +83,7 @@ export default function Home() {
           Icon={GiSmokeBomb}
           value={sensorsData.CO}
         />
-         <SensorCard
+        <SensorCard
           title="Sound Sensor"
           Icon={BsSoundwave}
           value={sensorsData.CO}
@@ -94,19 +93,11 @@ export default function Home() {
           Icon={LuGaugeCircle}
           value={sensorsData.CO}
         />
-          <SensorCard
+        <SensorCard
           title="PIR Sensor"
           Icon={LuGaugeCircle}
           value={sensorsData.CO}
         />
-
-
-        
-       
-       
-       
-
-       
       </section>
     </main>
   );
