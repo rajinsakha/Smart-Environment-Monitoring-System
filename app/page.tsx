@@ -54,7 +54,7 @@ export default function Home() {
           value={sensorsData.touch}
         />
         <SensorCard
-          title="Ultrasonic Sesnsor"
+          title="Ultrasonic Sensor"
           Icon={GiPathDistance}
           value={sensorsData.distance}
         />
