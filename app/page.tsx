@@ -70,16 +70,6 @@ export default function Home() {
           value={sensorsData.CO}
         />
         <SensorCard
-          title="Soil Moisture Sensor"
-          Icon={BsMoisture}
-          value={sensorsData.CO}
-        />
-        {/* <SensorCard
-          title="Water Level Sensor"
-          Icon={FaWater}
-          value={sensorsData.CO}
-        /> */}
-        <SensorCard
           title="Gas Sensor"
           Icon={GiSmokeBomb}
           value={sensorsData.gas}
@@ -92,9 +82,8 @@ export default function Home() {
         <SensorCard
           title="Atmospheric Pressure"
           Icon={LuGaugeCircle}
-          value={sensorsData.CO}
+          value={sensorsData.atm}
         />
-  
       </section>
       <Footer />
     </main>
