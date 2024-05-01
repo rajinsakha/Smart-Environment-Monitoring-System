@@ -1,7 +1,7 @@
 "use client";
 import Header from "@/components/Header";
 import SensorCard from "@/components/SensorCard";
-import { get, ref } from "firebase/database";
+import { get, ref, onValue } from "firebase/database";
 import { database } from "./firebaseConfig";
 import { FaFireFlameCurved, FaTemperatureFull, FaWater } from "react-icons/fa6";
 import { MdOutlineTouchApp, MdCo2 } from "react-icons/md";
@@ -11,13 +11,14 @@ import { IoRainySharp } from "react-icons/io5";
 import { BsMoisture, BsSoundwave } from "react-icons/bs";
 import { LuGaugeCircle } from "react-icons/lu";
 import { useEffect, useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [sensorsData, setSensorsData] = useState<any>({});
 
   useEffect(() => {
     const sensorsRef = ref(database, "/");
-    get(sensorsRef).then((snapshot) => {
+    onValue(sensorsRef, (snapshot) => {
       if (snapshot.exists()) {
         setSensorsData(snapshot.val());
       }
@@ -31,12 +32,12 @@ export default function Home() {
         <SensorCard
           title="Flame Sensor"
           Icon={FaFireFlameCurved}
-          value="No Fire Detected"
+          value={sensorsData.fire}
         />
         <SensorCard
           title="Temperature Sensor"
           Icon={FaTemperatureFull}
-          value={`${sensorsData?.temperature} Degree Celsius`}
+          value={`${sensorsData?.temperature} \u00b0 Celsius`}
         />
         <SensorCard
           title="Rain Level Sensor"
@@ -73,32 +74,29 @@ export default function Home() {
           Icon={BsMoisture}
           value={sensorsData.CO}
         />
-        <SensorCard
+        {/* <SensorCard
           title="Water Level Sensor"
           Icon={FaWater}
           value={sensorsData.CO}
-        />
+        /> */}
         <SensorCard
-          title="Smoke Level Sensor"
+          title="Gas Sensor"
           Icon={GiSmokeBomb}
-          value={sensorsData.CO}
+          value={sensorsData.gas}
         />
         <SensorCard
           title="Sound Sensor"
           Icon={BsSoundwave}
-          value={sensorsData.CO}
+          value={sensorsData.sound}
         />
         <SensorCard
           title="Atmospheric Pressure"
           Icon={LuGaugeCircle}
           value={sensorsData.CO}
         />
-        <SensorCard
-          title="PIR Sensor"
-          Icon={LuGaugeCircle}
-          value={sensorsData.CO}
-        />
+  
       </section>
+      <Footer />
     </main>
   );
 }
