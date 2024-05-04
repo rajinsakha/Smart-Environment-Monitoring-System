@@ -4,14 +4,13 @@ import SensorCard from "@/components/SensorCard";
 import { get, ref, onValue } from "firebase/database";
 import { database } from "./firebaseConfig";
 import { FaFireFlameCurved, FaTemperatureFull, FaWater } from "react-icons/fa6";
-import { MdOutlineTouchApp, MdCo2 } from "react-icons/md";
+import { MdOutlineTouchApp, MdCo2, MdAir } from "react-icons/md";
 import { GiPathDistance, GiPoisonGas, GiSmokeBomb } from "react-icons/gi";
 import { WiHumidity } from "react-icons/wi";
 import { IoRainySharp } from "react-icons/io5";
 import { BsMoisture, BsSoundwave } from "react-icons/bs";
 import { LuGaugeCircle } from "react-icons/lu";
 import { useEffect, useState } from "react";
-import { MdAir } from "react-icons/md";
 import Footer from "@/components/Footer";
 
 
@@ -68,7 +67,7 @@ export default function Home() {
         />
         <SensorCard
           title="Carbon Dioxide"
-          Icon={MdCo2}
+          Icon={MdAir}
           value={`${sensorsData.CO2} ppm`}
         />
         <SensorCard
