@@ -11,7 +11,9 @@ import { IoRainySharp } from "react-icons/io5";
 import { BsMoisture, BsSoundwave } from "react-icons/bs";
 import { LuGaugeCircle } from "react-icons/lu";
 import { useEffect, useState } from "react";
+import { MdAir } from "react-icons/md";
 import Footer from "@/components/Footer";
+
 
 export default function Home() {
   const [sensorsData, setSensorsData] = useState<any>({});
@@ -57,17 +59,22 @@ export default function Home() {
         <SensorCard
           title="Ultrasonic Sensor"
           Icon={GiPathDistance}
-          value={sensorsData.distance}
+          value={`${sensorsData.distance} cm`}
+        />
+        <SensorCard
+          title="Air Quality"
+          Icon={MdCo2}
+          value={`${sensorsData.air_quality}`}
         />
         <SensorCard
           title="Carbon Dioxide"
           Icon={MdCo2}
-          value={sensorsData.CO2}
+          value={`${sensorsData.CO2} ppm`}
         />
         <SensorCard
           title="Carbon Monoxide"
           Icon={GiPoisonGas}
-          value={sensorsData.CO}
+          value={`${sensorsData.CO} ppm`}
         />
         <SensorCard
           title="Gas Sensor"
