@@ -85,11 +85,11 @@ export default function Home() {
           Icon={BsSoundwave}
           value={sensorsData.sound}
         />
-        <SensorCard
+        {/* <SensorCard
           title="Atmospheric Pressure"
           Icon={LuGaugeCircle}
           value={sensorsData.atm}
-        />
+        /> */}
       </section>
       <Footer />
     </main>
