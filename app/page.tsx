@@ -62,12 +62,12 @@ export default function Home() {
         />
         <SensorCard
           title="Air Quality"
-          Icon={MdCo2}
+          Icon={MdAir}
           value={`${sensorsData.air_quality}`}
         />
         <SensorCard
           title="Carbon Dioxide"
-          Icon={MdAir}
+          Icon={MdCo2}
           value={`${sensorsData.CO2} ppm`}
         />
         <SensorCard
